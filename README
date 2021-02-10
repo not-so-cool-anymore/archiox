@@ -2,3 +2,7 @@ i_kernel
 =========================
 
 That's just a random kernel that I wrote, based on an internet article.
+
+To run with Qemu:
+make build
+qemu-system-i386 -kernel ./kernel
