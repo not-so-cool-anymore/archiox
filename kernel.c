@@ -18,7 +18,7 @@ void kernel_main(void)
     while (opening_string[j] != '\0')
     {
         video_memory_beggining_pointer[i] = opening_string[j];
-        video_memory_beggining_pointer[i + 1] = 0x07;
+        video_memory_beggining_pointer[i + 1] = 0x02;
         ++j;
         i = i + 2;
     }
