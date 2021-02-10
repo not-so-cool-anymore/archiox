@@ -1,3 +1,6 @@
+#define BLACK_BACKGROND 0x07
+#define WHITE_TEXT 0x07
+#define GREEN_TEXT 0x02
 
 int current_line = 0;
 
@@ -12,7 +15,7 @@ void clear_screen(char *video_memory_beggining_pointer)
     }
 }
 
-void write_string(char *video_memory_beggining_pointer, const char *string)
+void write_string(char *video_memory_beggining_pointer, const char *string, int color)
 {
     int memory_index = 80 * current_line * 2;
     int string_index = 0;
@@ -20,16 +23,16 @@ void write_string(char *video_memory_beggining_pointer, const char *string)
     while (string[string_index] != '\0')
     {
         video_memory_beggining_pointer[memory_index] = string[string_index];
-        video_memory_beggining_pointer[memory_index + 1] = 0x02;
+        video_memory_beggining_pointer[memory_index + 1] = color;
         ++string_index;
         memory_index = memory_index + 2;
     }
 }
 
-void write_new_line_string(char *video_memory_beggining_pointer, const char *string)
+void write_new_line_string(char *video_memory_beggining_pointer, const char *string, int color)
 {
     ++current_line;
-    write_string(video_memory_beggining_pointer, string);
+    write_string(video_memory_beggining_pointer, string, color);
 }
 
 void kernel_main(void)
@@ -37,13 +40,14 @@ void kernel_main(void)
     const char *opening_string = "The Kernel has been started successfully.";
 
     const char *sign[] = {
-        "___________",
-        "| By Ivan |",
-        "|_________|",
-        "     ||    ",
-        "     ||    ",
-        "     ||    ",
-        "     ==    "
+        "                                   __________                                   ",
+        "                                  |    By    |                                  ",
+        "                                  |   Ivan   |                                  ",
+        "                                  |__________|                                  ",
+        "                                       ||                                       ",
+        "                                       ||                                       ",
+        "                                       ||                                       ",
+        "                                       ==                                       ",
 
     };
 
@@ -54,11 +58,10 @@ void kernel_main(void)
     clear_screen(video_memory_beggining_pointer);
 
     // prints init message
-    write_string(video_memory_beggining_pointer, opening_string);
-    for (int i = 0; i <= 7; i++)
+    write_string(video_memory_beggining_pointer, opening_string, GREEN_TEXT);
+    for (int i = 0; i < 8; i++)
     {
-        write_new_line_string(video_memory_beggining_pointer, sign[i]);
+        write_new_line_string(video_memory_beggining_pointer, sign[i], GREEN_TEXT);
     }
-
     return;
 }
