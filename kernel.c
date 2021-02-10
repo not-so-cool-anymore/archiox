@@ -22,5 +22,6 @@ void kernel_main(void)
         ++j;
         i = i + 2;
     }
+
     return;
 }
