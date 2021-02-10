@@ -1,4 +1,4 @@
-#define BLACK_BACKGROND 0x07
+#define BLACK_BACKGROUND 0x07
 #define WHITE_TEXT 0x07
 #define GREEN_TEXT 0x02
 
@@ -10,7 +10,7 @@ void clear_screen(char *video_memory_beggining_pointer)
     while (j < 80 * 25 * 2)
     {
         video_memory_beggining_pointer[j] = ' ';
-        video_memory_beggining_pointer[j + 1] = BLACK_BACKGROND;
+        video_memory_beggining_pointer[j + 1] = BLACK_BACKGROUND;
         j = j + 2;
     }
 }
