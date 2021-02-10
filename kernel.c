@@ -10,7 +10,7 @@ void clear_screen(char *video_memory_beggining_pointer)
     while (j < 80 * 25 * 2)
     {
         video_memory_beggining_pointer[j] = ' ';
-        video_memory_beggining_pointer[j + 1] = 0x07;
+        video_memory_beggining_pointer[j + 1] = BLACK_BACKGROND;
         j = j + 2;
     }
 }
