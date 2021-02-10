@@ -1,17 +1,20 @@
-global  _start
+global start
+extern kernel_main
 
-extern  kernel_main
-bits    32
+bits 32
 
 section .bss
-    resb 8192
+    resb 8192		
     stack_space:
 
-
 section .text
-    _start:
-        cli
-        mov esp, stack_space
-        call kernel_main
-        hlt
+    align 4
+    dd 0x1BADB002
+    dd 0x00
+    dd - (0x1BADB002 + 0x00)
 
+    start:
+    cli
+    mov esp, stack_space
+    call kernel_main
+    hlt
