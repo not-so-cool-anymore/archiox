@@ -4,7 +4,7 @@ extern kernel_main
 bits 32
 
 section .bss
-    resb 8192		
+    resb 134217728		
     stack_space:
 
 section .text

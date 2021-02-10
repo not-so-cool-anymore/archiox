@@ -35,26 +35,30 @@ void write_new_line_string(char *video_memory_beggining_pointer, const char *str
 void kernel_main(void)
 {
     const char *opening_string = "The Kernel has been started successfully.";
-    const char *sign_string_upper = "___________";
-    const char *sign_string_text = "| By Ivan |";
-    const char *sign_string_lower = "|_________|";
-    const char *sign_string_stick = "     ||    ";
+
+    const char *sign[] = {
+        "___________",
+        "| By Ivan |",
+        "|_________|",
+        "     ||    ",
+        "     ||    ",
+        "     ||    ",
+        "     ==    "
+
+    };
 
     // begining of the video memory
     char *video_memory_beggining_pointer = (char *)0xb8000;
-
-    unsigned int i = 0;
-    unsigned int j = 0;
 
     // 25 lines, 80 columns each, 2 bytes per char
     clear_screen(video_memory_beggining_pointer);
 
     // prints init message
     write_string(video_memory_beggining_pointer, opening_string);
-    write_new_line_string(video_memory_beggining_pointer, sign_string_upper);
-    write_new_line_string(video_memory_beggining_pointer, sign_string_text);
-    write_new_line_string(video_memory_beggining_pointer, sign_string_lower);
-    write_new_line_string(video_memory_beggining_pointer, sign_string_stick);
+    for (int i = 0; i <= 7; i++)
+    {
+        write_new_line_string(video_memory_beggining_pointer, sign[i]);
+    }
 
     return;
 }
