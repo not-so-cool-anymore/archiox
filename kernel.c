@@ -37,7 +37,7 @@ void write_new_line_string(char *video_memory_beggining_pointer, const char *str
 
 void kernel_main(void)
 {
-    const char *opening_string = "The Kernel has been started successfully.";
+    const char *opening_string = "                   The Kernel has been started successfully.                    ";
 
     const char *sign[] = {
         "                                   __________                                   ",
