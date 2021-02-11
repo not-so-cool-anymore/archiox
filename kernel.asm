@@ -5,7 +5,7 @@ global write_port
 global load_idt
 
 extern kernel_main
-exterm keyboard_handler_init
+extern keyboard_handler_init
 
 bits 32
 

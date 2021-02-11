@@ -65,3 +65,7 @@ void kernel_main(void)
     }
     return;
 }
+
+void keyboard_handler_init(void)
+{
+}
