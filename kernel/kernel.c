@@ -18,13 +18,11 @@ void kernel_main(void)
 
     // prints init message
     write_string(video_memory_beggining_pointer, SUCCESSFUL_KERNEL_LOADING_MESSAGE, GREEN_TEXT, current_line);
+
     for (int i = 0; i < 8; i++)
     {
         write_new_line_string(video_memory_beggining_pointer, MADE_BY_SIGN[i], GREEN_TEXT, current_line);
     }
-    return;
-}
 
-void keyboard_handler_init(void)
-{
+    return;
 }
