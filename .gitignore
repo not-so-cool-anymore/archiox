@@ -1,4 +1,4 @@
 # build files
 kasm.o
 kc.o
-kernel
+archiox
