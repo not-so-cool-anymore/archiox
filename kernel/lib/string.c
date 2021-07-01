@@ -22,6 +22,6 @@ int strcmp(const char *first, const char *second, int len)
     return diff_factor;
 }
 
-char *strcpy(char *source, char *destination, int len)
+char *strcopy(char *source, char *destination, int len)
 {
 }
